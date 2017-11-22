@@ -1,0 +1,11 @@
+<div class="list-group">
+        <%_.each(list,function(item){%>
+            <a href="#details<%=item.id%>" class="list-group-item"><%=item.name%></a>
+        <%})%>
+        <br>
+        <button id="list_sort" class="btn btn-primary">排序</button>
+        <br>
+        <button id="list_recover" class="btn btn-primary">还原</button>
+        <br>
+        <button id="list_author" class="btn btn-primary">春上秋树</button>
+</div>
