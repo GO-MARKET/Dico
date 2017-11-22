@@ -13,8 +13,9 @@ define(['Base/BasePage', 'View/home'], function (BasePage, view) {
         },
 
         onLoad: function () {
-            this.showLoading();
+            // this.showLoading();
             this.loadData();
+            this.showToast('asdasdfasdfasdf');
         },
 
         events: function () {
@@ -51,7 +52,7 @@ define(['Base/BasePage', 'View/home'], function (BasePage, view) {
                 this.render({ list: res.data });
                 this.arry=res.data;
                 this.data=res.data;
-                this.hideLoading();
+                // this.hideLoading();
             }.bind(this))
         }
 
