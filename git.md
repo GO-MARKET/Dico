@@ -22,5 +22,17 @@
     git add ./xxx/xxx.js
 ```
 
+## 提交
+```
+    git commit -m "console"
+```
+
+## 推送到服务器上
+origin 远程服务器 <br>
+master 分支名
+```
+    git push origin master
+```
+
 
 
