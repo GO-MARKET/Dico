@@ -28,11 +28,22 @@
 ```
 
 ## 推送到服务器上
+
 origin 远程服务器 <br>
 master 分支名
+
+
 ```
     git push origin master
 ```
+
+## 合并代码
+
+git fetch 下载
+git merge  合并
+git pull origin master 下载并且合并
+
+
 
 
 
