@@ -8,5 +8,5 @@ define(["Base/Router"],function(Router){
     window.onhashchange=function(){
         Router.loadPage();
     }
-    
+
 })
