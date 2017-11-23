@@ -3,8 +3,10 @@ require.config({
 });
 
 define(["Base/Router"],function(Router){
+
     Router.loadPage();
     window.onhashchange=function(){
         Router.loadPage();
     }
+    
 })
