@@ -8,7 +8,7 @@ define(["View/list","Base/BasePage"],function(view,BasePage){
         up:true,
 
         init:function(){
-        
+            console.log(3211222111)
         },
         events:function(){
 
