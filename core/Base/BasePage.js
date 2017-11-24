@@ -7,7 +7,7 @@ define(function () {
 
             $(lastPage).hide();
             if (!$(this.selector).length) {
-                $("#main").append('<div id="' + this.selector.replace("#", "") + '"></div>')
+                $("#pageBox").append('<div id="' + this.selector.replace("#", "") + '"></div>')
             }
             $(this.selector).show();
 

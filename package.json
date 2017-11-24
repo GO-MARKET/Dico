@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo 123",
     "tpl": "./node_modules/.bin/grunt watcher",
-    "ser":"node ../Service/app.js"
+    "ser": "node ../Service/app.js"
   },
   "author": "",
   "license": "ISC",

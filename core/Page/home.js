@@ -1,4 +1,4 @@
-define(['Base/BasePage', 'View/home'], function (BasePage, view) {
+define(['Base/BasePage', 'View/home','Base/Header'], function (BasePage, view,Header) {
     return _.extend(_.clone(BasePage), {
 
         selector: '#home',
@@ -9,10 +9,25 @@ define(['Base/BasePage', 'View/home'], function (BasePage, view) {
 
         init: function () {
             console.log('init');
-            
+            //
+    
+
         },
 
         onLoad: function () {
+            //设置 header
+            Header.setLeft({
+                'logo':function(){
+                    console.log('click logo')
+                },
+                'me':function(){
+                    console.log('click me')
+                }
+            });
+
+
+
+
             this.showLoading();
             this.loadData();
 

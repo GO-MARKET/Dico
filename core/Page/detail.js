@@ -1,4 +1,4 @@
-define(["View/detail", "Base/BasePage"], function (View, BasePage) {
+define(["View/detail", "Base/BasePage",'Base/Header'], function (View, BasePage,Header) {
     return _.extend(_.clone(BasePage), {
         selector: "#detail",
         view: View,
@@ -10,6 +10,16 @@ define(["View/detail", "Base/BasePage"], function (View, BasePage) {
             
         },
         onLoad: function () {
+
+            Header.setLeft({
+                me:function(){
+                    console.log('detail click me')
+                },
+                logo:function(){
+                    console.log('detail click logo')
+                }
+            });
+
             this.showLoading();
             this.loadData();
         },
