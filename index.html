@@ -8,31 +8,31 @@
     <script type="text/javascript" src="assets/js/zepto.min.js"></script>
     <script type="text/javascript" src="assets/js/underscore.min.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/base.css">
 </head>
 
 <body>
-    <div id='main' class="container">
-        <div id="header">
-                <div class="text-success w-25" id="header_left">
-                        
-                            </div>
-                        
-                            <div class="w-75 text-right" id="header_center" >
-                        
-                            </div>
-                        
-                            <div id="header_right">
-                        
-                            </div>
-        </div>
-        <div id="pageBox"></div>
+    <div id='main'>
+        <header id="header" class="navbar navbar-light bg-light">
+            <div class="header_left col-3"></div>
+            <div class="header_center form-inline col-9"></div>
+            <div class="header_right col-3"></div>
+        </header>
+        <div id="pageBox" class="container-fluid" style="max-width:100%"></div>
     </div>
+
     <div id="diolog">
-        <div id="modal" class="shadow" ></div>
-        <div id="toast" class="tipBox"><p></p></div>
-        <div id="loading" class="tipLoad" ><div class="loader"></div></div>
+        <div id="modal" class="shadow"></div>
+        <div id="toast" class="tipBox">
+            <p></p>
+        </div>
+        <div id="loading" class="tipLoad">
+            <div class="loader"></div>
+        </div>
     </div>
+
     <script type="text/javascript" data-main="app" src="assets/js/require.min.js"></script>
 </body>
+
 </html>

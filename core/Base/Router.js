@@ -30,10 +30,10 @@ define(function () {
                 if(_.indexOf(this.pageList, hashPath) == -1){
                     this.pageList.push(hashPath);
                     page._init(this.lastPage);
-                    page.onLoad(this.lastPage);
+                    page._onLoad(this.lastPage);
                 }else{
                     $(this.lastPage).hide();
-                    page.onLoad(this.lastPage);
+                    page._onLoad(this.lastPage);
                     $(page.selector).show();
                 }
                 this.lastPage = page.selector;

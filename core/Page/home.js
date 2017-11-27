@@ -16,30 +16,31 @@ define(['Base/BasePage', 'View/home','Base/Header'], function (BasePage, view,He
 
         onLoad: function () {
             //设置 header
-            Header.setLeft({
-                'logo':function(){
-                    console.log('click logo')
-                },
-                'me':function(){
-                    console.log('click me')
-                }
-            });
+            Header.setLeft({logo:function(){
 
+            }}).setCenter({search:function(){
 
-
+            }}).setRight(null);
 
             this.showLoading();
             this.loadData();
 
-            this.showToast('asdasd');
+            // this.showToast('asdasd');
         },
 
         events: function () {
             console.log('home event');
+            $('.card').live('click',this.event_goDetail.bind(this))
             $("#list_sort").live('click', this.event_sort.bind(this));
             $("#list_recover").live('click', this.event_recover.bind(this));
             $("#list_author").live('click', this.event_author.bind(this))
         },
+
+        event_goDetail(event){
+            var id = $(event.currentTarget).data('id')
+            this.go('#detail-'+id);
+        },
+
 
         event_sort: function (event) {
             var data = _.sortBy(this.arry, 'sales');
@@ -64,7 +65,8 @@ define(['Base/BasePage', 'View/home','Base/Header'], function (BasePage, view,He
 
         loadData: function () {
 
-            $.get('http://127.0.0.1:8000/api/list', function (res) {
+            $.get('http://127.0.0.1:8000/api/index', function (res) {
+                console.log(res);
                 this.render({ list: res.data });
                 this.arry=res.data;
                 this.data=res.data;
