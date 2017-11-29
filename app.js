@@ -1,6 +1,6 @@
 WebApp = {
     pageSwitch:0,
-    pageStyle:null,
+    pageStyle:'',
 }
 
 require.config({
@@ -10,6 +10,7 @@ require.config({
 define(["Base/Router"],function(Router){
     Router.loadPage();
     window.onhashchange = function(event){
+        console.log(window.location.hash);
         Router.loadPage();
     };
 });

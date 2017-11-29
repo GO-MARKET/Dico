@@ -1,10 +1,14 @@
 define(function () {
     return ''
-    + '<div class="clearfix ">\n'
+    + '<div class="clearfix" id=\'indexBox\'>\n'
+    + '\n'
+    + '</div>\n'
+    + '\n'
+    + '<script type="text/template" id="indexBox_tpl">\n'
     + '    <%_.each(list,function(item){%>\n'
-    + '        <div class="col-md-3 col-lg-2 col-xl-2 float-left mt-2" style="padding:5;">\n'
+    + '        <div class="col-md-3 col-lg-2 col-xl-2 float-left mt-1" style="padding:5;">\n'
     + '            <div class="card" data-id="<%=item.goods_id%>">\n'
-    + '                <img class="card-img-top" style="margin: 2px" src="http://127.0.0.1:8000/<%=item.goods_images%>" />\n'
+    + '                <img class="card-img-top" src="http://127.0.0.1:8000/<%=item.goods_images%>" />\n'
     + '                <div class="card-body" style="padding:1rem">\n'
     + '                    <h4 class="card-title" style="font-size:1rem;height:2rem">\n'
     + '                        <%= item.goods_name %>\n'
@@ -23,5 +27,5 @@ define(function () {
     + '            </div>\n'
     + '        </div>\n'
     + '    <%})%>\n'
-    + '</div>';
+    + '</script>';
 });

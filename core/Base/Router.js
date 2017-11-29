@@ -6,7 +6,7 @@ define(function () {
 
         routers: {
             'index': 'home',
-            'list': 'list',
+            'cart': 'cart',
             'detail-*': 'detail',
             'login': 'login',
         },
@@ -32,9 +32,7 @@ define(function () {
                     page._init(this.lastPage);
                     page._onLoad(this.lastPage);
                 }else{
-                    $(this.lastPage).hide();
                     page._onLoad(this.lastPage);
-                    $(page.selector).show();
                 }
                 this.lastPage = page.selector;
 

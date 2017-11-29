@@ -1,3 +1,6 @@
+body {
+    overflow-x: hidden;
+}
 .shadow{
     position:fixed;
     top:0;

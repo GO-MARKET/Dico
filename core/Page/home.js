@@ -1,16 +1,11 @@
 define(['Base/BasePage', 'View/home','Base/Header'], function (BasePage, view,Header) {
     return _.extend(_.clone(BasePage), {
-
+        //设置当前页面的容器
         selector: '#home',
+        //设置视图
         view: view,
 
-        arry:[],
-        data:[],
-
         init: function () {
-            console.log('init');
-            //
-    
 
         },
 
@@ -27,50 +22,31 @@ define(['Base/BasePage', 'View/home','Base/Header'], function (BasePage, view,He
 
             // this.showToast('asdasd');
         },
-
+                
         events: function () {
-            console.log('home event');
-            $('.card').live('click',this.event_goDetail.bind(this))
-            $("#list_sort").live('click', this.event_sort.bind(this));
-            $("#list_recover").live('click', this.event_recover.bind(this));
-            $("#list_author").live('click', this.event_author.bind(this))
+            this.el.delegate('.card','click',this.event_goDetail.bind(this));
         },
 
         event_goDetail(event){
             var id = $(event.currentTarget).data('id')
             this.go('#detail-'+id);
         },
-
-
-        event_sort: function (event) {
-            var data = _.sortBy(this.arry, 'sales');
-            if (this.up) {
-                this.up = false;
-            } else {
-                data = data.reverse();
-                this.up = true;
-            }
-            this.render({ "list": data });
-        },
-
-        event_recover: function () {
-            this.render({ "list": this.data });
-        }, 
         
-        event_author: function () {
-            var data = _.where(this.arry, { author: "春上秋树" });
-            this.render({ "list": data });
-        },
-
-
         loadData: function () {
 
             $.get('http://127.0.0.1:8000/api/index', function (res) {
-                console.log(res);
-                this.render({ list: res.data });
-                this.arry=res.data;
-                this.data=res.data;
+                //替换并且注入  返回完整HTML内容             
+                var html = this.template(
+                    //取出模板内容
+                    this.el.find('#indexBox_tpl').html(),
+                    //注入数据
+                    {list:res.data}
+                );
+                //将内容写入 容器
+                this.el.find('#indexBox').html(html);
                 this.hideLoading();
+                //页面显然完成后执行
+                this.render();
             }.bind(this))
         }
 

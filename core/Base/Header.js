@@ -15,7 +15,7 @@ define(function () {
                     return '<a class="event_logo navbar-brand" href="#"><img src="assets/img/logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""> Dico </a>'
                 },
                 back:function(){
-                    return '<a class="event_back navbar-brand" href="#"><i class="icon ion-chevron-left"></i></a>'
+                    return '<a class="event_back navbar-brand" ><i class="icon ion-chevron-left"></i></a>'
                 },
                 search:function(){
                     self.el.find('.header_center').addClass('col-9').removeClass('col-6');
@@ -37,7 +37,6 @@ define(function () {
             $(this.el.find('.header_left').html(''));
             
             _.each(els,function(eventFun,key){
-                console.log('123')
                 if(!this.els[key]) return;
                 var el = this.els[key];
                 this.el.find('.header_left').append(el());

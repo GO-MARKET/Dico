@@ -1,0 +1,23 @@
+define(function () {
+    return ''
+    + '<div id=\'cartBox\'>\n'
+    + '    <div style="height:80px" class="claarFix">\n'
+    + '        <img src="http://127.0.0.1:8000/images/15.jpg" style="width:80px;"/>\n'
+    + '        <span>腌臜发斯蒂芬</span>\n'
+    + '        <input type="text">\n'
+    + '        <span>234234</span>\n'
+    + '    </div>\n'
+    + '    <div style="height:80px" class="claarFix">\n'
+    + '            <img src="http://127.0.0.1:8000/images/15.jpg" style="width:80px;"/>\n'
+    + '            <span>腌臜发斯蒂芬</span>\n'
+    + '            <input type="text">\n'
+    + '            <span>234234</span>\n'
+    + '        </div>\n'
+    + '        <div style="height:80px" class="claarFix">\n'
+    + '                <img src="http://127.0.0.1:8000/images/15.jpg" style="width:80px;"/>\n'
+    + '                <span>腌臜发斯蒂芬</span>\n'
+    + '                <input type="text">\n'
+    + '                <span>234234</span>\n'
+    + '            </div>\n'
+    + '</div>';
+});

@@ -1,12 +1,52 @@
-<div class="card text-center" style="width: 20rem;">
-    <div class="card-body">
-        <h3 class="card-title"><%=name%></h3>
-        <div class="card-footer text-muted">商品作者：<%=author%></div>
-        <div class="card-footer text-muted">商品描述：<%=description%></div>
-        <div class="card-footer text-muted">商品价格：<%=price%></div>
-        <div class="card-footer text-muted">商品售价：<%=sales%></div>
-    </div>
+<div id='detailBox'>
+       
 </div>
 
-<script type="text/tmeplate"  id='listBox_tpl'>
+<script type="text/tmeplate" id='detailBox_tpl'>
+    <div class="card">
+        <% if(data.goods_images){ %>
+            <img class="card-img-top" style="width:70%;align-self:center" src="http://127.0.0.1:8000/<%= data.goods_images  %>" />
+        <% } %>
+    
+        <div class="card-body">
+            <h4 class="card-title"><%= data.goods_name %></h4>
+            <p class="card-text"><%= data.goods_title %></p>
+
+            <div class="clearfix" style="line-height:1.5rem;">
+                <a  class="card-link float-left" style="font-size:1.5rem;color:#e4393c">¥
+                    <%= data.goods_price %>
+                </a>
+                <a  class="card-link float-right" style="margin-top:0.3rem; font-size:0.8rem;color:#e4393c">
+                    <i class="icon ion-bag"></i>购物车
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    <div id="listBox"></div>
+</script>
+
+<script type="text/tmeplate" id='listBox_tpl'>
+    <%_.each(list,function(item){%>
+        <div class="col-md-3 col-lg-2 col-xl-2 float-left mt-1" style="padding:5;">
+            <div class="card" data-id="<%=item.goods_id%>">
+                <img class="card-img-top" src="http://127.0.0.1:8000/<%=item.goods_images%>" />
+                <div class="card-body" style="padding:1rem">
+                    <h4 class="card-title" style="font-size:1rem;height:2rem">
+                        <%= item.goods_name %>
+                    </h4>
+                    <p class="card-text" style="font-size:0.5rem;height:1rem;line-height:1rem;">
+                        <%= item.goods_title %>
+                    </p>
+                    <div class="clearfix" style="line-height:1.5rem;">
+                        <a href="#" class="card-link float-left" style="font-size:1.5rem;color:#e4393c">¥
+                            <%= item.goods_price %>
+                        </a>
+                        <a href="#" class="card-link float-right" style="margin-top:0.3rem; font-size:0.8rem;color:#e4393c">
+                            <i class="icon ion-bag"></i>购物车</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <%})%>
 </script>
