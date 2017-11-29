@@ -43,7 +43,11 @@ git fetch 下载
 git merge  合并
 git pull origin master 下载并且合并
 
+##还原单个文件
+git checkout core/Page/detail.js
 
+##还原某文件夹下所有文件
+git checkout ./*
 
 
 
