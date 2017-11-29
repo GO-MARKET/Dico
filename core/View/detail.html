@@ -16,8 +16,8 @@
                 <a  class="card-link float-left" style="font-size:1.5rem;color:#e4393c">¥
                     <%= data.goods_price %>
                 </a>
-                <a  class="card-link float-right" style="margin-top:0.3rem; font-size:0.8rem;color:#e4393c">
-                    <i class="icon ion-bag"></i>购物车
+                <a  href="javascript:void(0);" class="card-link float-right event_addCart" data-id="<%= data.goods_id %>" style="margin-top:0.3rem; font-size:0.8rem;color:#e4393c">
+                    <i class="icon ion-bag"></i> 购物车
                 </a>
             </div>
         </div>
@@ -42,7 +42,7 @@
                         <a href="#" class="card-link float-left" style="font-size:1.5rem;color:#e4393c">¥
                             <%= item.goods_price %>
                         </a>
-                        <a href="#" class="card-link float-right" style="margin-top:0.3rem; font-size:0.8rem;color:#e4393c">
+                        <a  href="javascript:void(0);" class="card-link float-right event_addCart" data-id="<%= item.goods_id %>" style="margin-top:0.3rem; font-size:0.8rem;color:#e4393c">
                             <i class="icon ion-bag"></i>购物车</a>
                     </div>
                 </div>

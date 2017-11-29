@@ -1,20 +1,20 @@
-<div id='cartBox'>
-    <div style="height:80px" class="claarFix">
-        <img src="http://127.0.0.1:8000/images/15.jpg" style="width:80px;"/>
-        <span>腌臜发斯蒂芬</span>
-        <input type="text">
-        <span>234234</span>
-    </div>
-    <div style="height:80px" class="claarFix">
-            <img src="http://127.0.0.1:8000/images/15.jpg" style="width:80px;"/>
-            <span>腌臜发斯蒂芬</span>
-            <input type="text">
-            <span>234234</span>
-        </div>
-        <div style="height:80px" class="claarFix">
-                <img src="http://127.0.0.1:8000/images/15.jpg" style="width:80px;"/>
-                <span>腌臜发斯蒂芬</span>
-                <input type="text">
-                <span>234234</span>
+<div class="col" id="cartList"></div>
+
+<script type="text/template" id="cartList_tpl">
+    <%_.each(data,function(item){%>
+    <div style="height:80px;line-height:80px" class="row">
+            <div class="col-2">
+                <img src="http://127.0.0.1:8000/<%=item.goods_images%>" style="width:80px;"/>
             </div>
-</div>
+            <div class="col-4" style="line-height:10px;">
+                <h6><%=item.goods_name%></h6>
+                <span style="font-size:0.5rem"><%=item.goods_title%></span>
+            </div>
+            <div class="col-2"><span style="color:red"><%=item.goods_price%></span></div>
+            <div class="col-2" style="align-self:center">
+                <input style="width:4.5rem" data-id="<%= item.goods_id%>" class="form-control" value="<%=item.cartNum%>" type="text">
+            </div>
+            <div class="col-2"><span style="color:red" id='countPrice_<%= item.goods_id  %>' ><%= (item.goods_price * item.cartNum).toFixed(2) %></span></div>  
+    </div>
+    <% }) %>
+</script>
