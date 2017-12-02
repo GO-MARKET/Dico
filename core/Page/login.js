@@ -31,8 +31,10 @@ define(["View/login","Base/BasePage",'Base/Http'],function(view,basepage,Http){
                 },function(res,error){
                    if(res.code==1){
                        var  token = res.data.token ;
-                       window.localStorage.setItem('token',token);
+                        window.localStorage.setItem('token',token);
                         this.go(this.lastPage);
+                   }else{
+                       this.showToast(res.msg);
                    }
                 }.bind(this))
             }

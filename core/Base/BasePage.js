@@ -4,7 +4,7 @@ define(function () {
         selector: '',
         el : null,
 
-        _init: function (lastPage) {
+        _init: function () {
             //判断页面是否初始化
             if (!$(this.selector).length) {
                 //添加内容
@@ -24,9 +24,10 @@ define(function () {
 
         },
 
-        _onLoad:function(lastPage){
+        _onLoad:function(lastRouter,lastPage){
             //存储上一个页面
-            this.lastPage = lastPage;
+            this.lastRouter = lastRouter;
+            this.lastPage = lastPage
             this.onLoad();
         },
 
@@ -46,14 +47,14 @@ define(function () {
         //渲染页面 并显示
         render:function(){
             //如果是同一个页面 不做缩小的特效
-            this.lastPage!=this.selector &&  $(this.lastPage).addClass('pt-page-scaleDown');
+            this.lastRouter != this.selector &&  $(this.lastRouter).addClass('pt-page-scaleDown');
             //显示页面并且增加特效
             $(this.selector).addClass(WebApp.pageStyle).show();
 
             //动画执行结束
             setTimeout(function() {
                 //如果是同一个页面 不删除缩小特效
-                this.lastPage!=this.selector && $(this.lastPage).removeClass('pt-page-scaleDown').hide();
+                this.lastRouter != this.selector && $(this.lastRouter).removeClass('pt-page-scaleDown').hide();
                 //删除当前页面的显示特效
                 $(this.selector).removeClass(WebApp.pageStyle);
             }.bind(this),525);
@@ -63,7 +64,7 @@ define(function () {
 
 
         //显示一个 提示
-        showToast:function(text,time){
+        showToast:function(text,cb,time){
             $('#toast p').html(text);
 
             $('#modal').show();
@@ -71,13 +72,15 @@ define(function () {
 
             var clear =  setTimeout(function(){
                 $('#modal').hide();
-                $('#toast').hide();  
+                $('#toast').hide(); 
+                cb && cb()
             },time||2000)
 
             $('#toast').one('click',function(){
                 clearTimeout(clear);
                 $('#modal').hide();
                 $('#toast').hide();
+                cb && cb()
             });
         },
         //显示 loading 图

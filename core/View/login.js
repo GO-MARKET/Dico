@@ -10,6 +10,6 @@ define(function () {
     + '        <label for="psd">Password</label>\n'
     + '        <input type="password" class="form-control" id="psd" placeholder="Password" value="123456">\n'
     + '    </div>\n'
-    + '    <button class="btn btn-primary" id="login_btn">登录</button>\n'
+    + '    <button class="btn btn-primary" type="button" id="login_btn">登录</button>\n'
     + '</form>';
 });

@@ -1,4 +1,4 @@
-define(["View/detail","Base/BasePage",'Base/Header','Base/CartAction'], function (View, BasePage,Header,CartAction) {
+define(["View/detail","Base/BasePage",'Base/Header','Base/CartAction','Base/Http'], function (View, BasePage,Header,CartAction,Http) {
 
     return _.extend(_.clone(BasePage), {
         selector: "#detail",
@@ -52,7 +52,19 @@ define(["View/detail","Base/BasePage",'Base/Header','Base/CartAction'], function
 
         loadData: function () {
             var id = window.location.hash.replace("#detail-", "");
-            $.get('http://127.0.0.1:8000/api/detail', { id: id }, function (res) {
+            Http.get('http://127.0.0.1:8000/api/detail', { id: id }, function (res) {
+
+
+                if(res.code < 0){
+                    this.hideLoading()
+                    this.showToast(res.msg,function(){
+                        this.render();
+                        this.go('#login')
+                    }.bind(this))
+                    return;
+                }
+
+
                 this.detail = res.data;
                 var html = this.template(
                     this.el.find('#detailBox_tpl').html(),
