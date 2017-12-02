@@ -4,6 +4,7 @@ WebApp = {
 }
 
 require.config({
+    urlArgs: 'v=1.1',
     baseUrl:'core',
 });
 

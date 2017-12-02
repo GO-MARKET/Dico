@@ -38,9 +38,6 @@ define(function () {
 
             }.bind(this));
 
-            
-
-
         }
     }
 })

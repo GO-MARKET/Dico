@@ -1,4 +1,4 @@
-define(["View/login","Base/BasePage"],function(view,basepage){
+define(["View/login","Base/BasePage",'Base/Http'],function(view,basepage,Http){
     return _.clone(
         _.extend(basepage,{
             selector:"#login",
@@ -15,6 +15,7 @@ define(["View/login","Base/BasePage"],function(view,basepage){
 
             onLoad:function(){
                 this.render();
+                this.render();
             },
             
             event_login:function(event){
@@ -24,14 +25,16 @@ define(["View/login","Base/BasePage"],function(view,basepage){
             },
             loadData:function(name,psd){
                 
-                $.post('http://127.0.0.1:8000/api/login',{
+                Http.post('http://127.0.0.1:8000/user/login',{
                     username:name,
                     password:psd
-                },function(data){
-                   if(data.code==1){
-                       window.location.hash="list";
+                },function(res,error){
+                   if(res.code==1){
+                       var  token = res.data.token ;
+                       window.localStorage.setItem('token',token);
+                        this.go(this.lastPage);
                    }
-                })
+                }.bind(this))
             }
         })
     )

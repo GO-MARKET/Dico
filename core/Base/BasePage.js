@@ -90,6 +90,33 @@ define(function () {
             $('#modal').hide();
             $('#loading').hide();
         },
+
+        showConfirm:function(data){
+
+            $("#confirm").find("#ctitle").html(data.title),
+            $("#confirm").find("p").html(data.message),
+
+            $("#confirm").find("#cbuttonF").html(data.buttons[0].text),
+            $("#confirm").find("#cbuttonS").html(data.buttons[1].text),
+            $("#confirm").fadeIn(),
+            $("#cbuttonF").unbind("click"),
+            $("#cbuttonF").one("click", data.buttons[0].click),
+            $("#cbuttonS").unbind("click"),
+            $("#cbuttonS").one("click", data.buttons[1].click),
+            $("#cbuttonF").one("click",function() {
+                $("#modal").fadeOut(),
+                $("#confirm").fadeOut()
+            }),
+            $(".close").one("click",function() {
+                $("#modal").fadeOut(),
+                $("#confirm").fadeOut()
+            }),
+            $("#cbuttonS").one("click",function() {
+                $("#modal").fadeOut(),
+                $("#confirm").fadeOut()
+            })
+        },
+
         //前进
         go:function(hash){
             WebApp.pageStyle = 'pt-page-go';

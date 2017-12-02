@@ -1,4 +1,4 @@
-define(['Base/BasePage', 'View/home','Base/Header'], function (BasePage, view,Header) {
+define(['Base/BasePage', 'View/home','Base/Header','Base/Http'], function (BasePage, view,Header,Http) {
     return _.extend(_.clone(BasePage), {
         //设置当前页面的容器
         selector: '#home',
@@ -21,6 +21,9 @@ define(['Base/BasePage', 'View/home','Base/Header'], function (BasePage, view,He
             this.loadData();
 
             // this.showToast('asdasd');
+            // this.showConfirm({
+            //     'title':'xxx'
+            // })
         },
                 
         events: function () {
@@ -34,12 +37,10 @@ define(['Base/BasePage', 'View/home','Base/Header'], function (BasePage, view,He
         
         loadData: function () {
 
-            $.get('http://127.0.0.1:8000/api/index', function (res) {
+            Http.get('http://127.0.0.1:8000/api/index',{}, function (res,err) {
                 //替换并且注入  返回完整HTML内容             
                 var html = this.template(
-                    //取出模板内容
                     this.el.find('#indexBox_tpl').html(),
-                    //注入数据
                     {list:res.data}
                 );
                 //将内容写入 容器
